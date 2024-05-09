@@ -1,67 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    {%load static%}
+    {%block title %}Home{% endblock %}
+    {% block links %}
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="./CSS/navAndFooter.css">
-    <link rel="stylesheet" href="./CSS/index.css">
     <link rel="shortcut icon" href="./media/logo.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+     <link rel="stylesheet" href="{% static 'css/home.css' %}">
    
+    {% endblock %}
 
+{%block contanier%}
 
-</head>
-
-<body>
-    <div class="wrapper">
-        <nav class="nav">
-            <div class="navLogo">
-                <img src="./media/Medical-Logo-Design-Symbol-Icon-on-transparent-background-PNG.png"  alt="">
-                <h1>AL-Shefa Medical Center</h1>
-            </div>
-            <div class="navMenu" id="navMenu">
-                <ul>
-                    <li><a href="./index.html" class="link">Home</a></li>
-                    <li><a href="#aboutUs" class="link">About Us</a></li>
-                    <li><a href="./pages/services.html" class="link">services</a></li>
-                    <li><a href="./pages/patientInfo.html" class="link">Patient Info</a></li>
-                    <li><a href="./pages/contact.html" class="link">Contact Us</a></li>
-                 
-
-                </ul>
-                <div class="navBtn">
-                    <a href="./pages/login.html" id="loginLink"><button class="btn white-button" id="loginBtn"
-                            onclick="handleLoginClick()">Sign In</button></a>
-                    <a href="./pages/register.html" id="registerLink"><button class="btn" id="registerBtn">Sign Up</button></a>
-                    <a href="" id="myUserName">
-                        <button class="btn" id="userName1"></button>
-                    </a>
-                
-                </div>
-                
-            </div>
-            
-            <!-- <div class="navBtn">
-               <a href="./pages/login.html" id="loginLink"><button class="btn white-button" id="loginBtn" onclick="handleLoginClick()">Sign In</button></a> 
-               <a href="./pages/register.html" id="registerLink"><button class="btn" id="registerBtn">Sign Up</button></a> 
-                <a href="" id="myUserName" >
-                   <button class="btn" id="userName1" ></button>
-                </a>
-            
-            </div> -->
-           
-            <div class="navMenuBtn">
-                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
-            </div>
-
-        </nav>
         
         <section id="mainDiv">
             <div id="mainDivOne">
@@ -83,7 +37,7 @@
             </div>
          
             <div id="imgDoc">
-                <img src="./media/doctortreatpatient.jpg" alt="">
+                <img src="{% static 'media/doctortreatpatient.jpg' %}" alt="">
             </div>
 
         </section>
@@ -110,7 +64,7 @@
                 </div>
             </div>
             <div id="aboutUsImg">
-                <img src="./media/aboutUsindex.jpg" alt="">
+                <img src="{% static 'media/aboutUsindex.jpg' %}" alt="">
             </div>
             
 
@@ -180,62 +134,16 @@
                
             </section>
         
-        
-    </div>
     
-    <footer id="footer">
-       <div id="topFooter">
-            <div id="locationFooter">
-                <h4>Location</h4>
-                <p>Jabal Amman, 5th Circle Khalil Mizel
-                    <br>
-                    Street Amman – Jordan
-                </p>
-            </div>
-            <div id="pages">
-                <h4>Pages</h4>
-                <ul>
-                    <li><a href="./index.html" class="link">Home</a></li>
-                    <li><a href="./pages/services.html" class="link">services</a></li>
-                    <li><a href="./pages/about.html" class="link">About Us</a></li>
-                    <li><a href="./pages/patientInfo.html" class="link">Patient Info</a></li>
-                    <li><a href="./pages/contact.html" class="link">Contact Us</a></li>
-                </ul>
-            
-            </div>
-            <div id="emergencyAndOpenHour">
-                <div id="emergency">
-                    <h4>Emergency</h4>
-                    <p>+ 962 798675601</p>
-                </div>
-                <div id="openHours">
-                    <h4>Visiting Hours</h4>
-                    <p>General Visiting Hours: <br>
-                        8:00 a.m. – 04:00 p.m.
-                </div>
-            </div>
-            <div id="socialMedia">
-                <h4>Social Media</h4>
-                <i class='bx bxl-facebook-circle' style='color:#3435a2'></i>
-                <i class='bx bxl-twitter' style='color:#3536a5'></i>
-                <i class='bx bxl-instagram' style='color:#3435a2'></i>
-                <i class='bx bxl-linkedin-square' style='color:#3435a2'></i>
-            </div>
-       </div>
-       <div id="bottomFooter">
-           <span>&copy; Copyright 2018. All Rights Reserved. Al Shifa'a Medical Center
-        By Management Information Systems Department</span>
-       </div>
 
-    </footer>
-   
-<script src="./JS/navAndFooter.js"></script>
+{%endblock%}
+    
+
+           
+{%block script %}  
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="./JS/index.js"></script>
+<script src="{%static 'js/home.js'%}"></script>
 
+{% endblock %}
 
-
-</body>
-
-</html>

@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+    {%load static%}
+    {%block title %}About Us{% endblock %}
+    {% block links %}
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link rel="shortcut icon" href="{% static 'media/logo.jpg' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    {% endblock %}
+
+{%block contanier%}
+
+ <section id="mainDiv">
+            <div id="mainDivOne">
+                <div id="pageTilte">
+                    <h1>About Us</h1>
+                </div>
+                <div id="paragraphText">
+                    <p>
+                        Welcome to Al Shifaa Medical Center, a trusted healthcare provider committed to delivering quality medical services
+                        since our establishment in 2005. At Al Shifaa, we prioritize the well-being of our patients, offering a comprehensive
+                        range of medical services with a focus on personalized care. Our dedicated team of experienced healthcare professionals
+                        is here to provide compassionate and patient-centered treatment, ensuring that each individual receives the attention
+                        and support they deserve. With a commitment to excellence, Al Shifaa Medical Center continues to be a beacon of health
+                        and healing in our community, striving to make a positive impact on the lives we touch. Thank you for choosing Al Shifaa
+                        Medical Center for your healthcare needs. Your health, our priority.
+                    </p>
+                    <div id="imgDoc">
+                        <img src="{% static 'media/AboutUsPage.jpg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+            
+
+        </section>
+        <section id="secondryDiv">
+            <div id="top">
+                <div class="vision">
+                    <h4>Our Vision</h4>
+                    <div class="paragraphI">
+                        <i class="fa-solid fa-eye"></i>
+                        <p>
+                            Our vision is to be the premier healthcare provider facility in Jordan in delivering quality and
+                            compassionate care to
+                            all patients while maintaining highest medical ethical standards at all times
+                        </p>
+                    </div>
+                </div>
+        <div class="vision">
+            <h4>Our Mission</h4>
+            <div class="paragraphI">
+                <i class="fa-brands fa-slack"></i>
+                <p>
+                    To provide medical and diagnostic services to citizens of Jordan through adopting excellent
+                    health care delivery standards, utilizing the latest technology, hiring qualified staff and continuously
+                    improving their
+                    competencies. We are highly dedicated to exceed the expectation of all our stakeholders and strive to
+                    maintain a safe
+                    environment for our customers.
+                </p>
+            </div>
+        </div>
+            </div>
+           <div id="bottom">
+            
+        <div class="vision">
+            <h4>Our Value</h4>
+            <div class="paragraphI">
+                <i class="fa-solid fa-gem"></i>
+                <ul>
+                    <li>Compassion</li>
+                    <li>Excellence</li>
+                    <li>Teamwork</li>
+                    <li>Patient Centered Care</li>
+                    <li>Continuous learning</li>
+                    <li>High Quality and Safe Care</li>
+                </ul>
+            </div>
+        </div>
+           </div>
+            <div>
+                <img src="{% static 'media/vision.jpg' %}" alt="">
+            </div>
+
+        </section>
+
+{%endblock%}
+    
+
+           
+{%block script %}  
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="{%static 'js/home.js'%}"></script>
+
+{% endblock %}

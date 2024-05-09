@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body {
+    /* background: url("../media/background.jpg")  center; */
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.wrapper {
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 110vh;
+    width: 100%;
+    /* background: rgba(220, 212, 212, 0.4); */
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    background: linear-gradient(rgba(111, 171, 227, 0.6), transparent);
+    z-index: 100;
+    margin-bottom: 20px;
+}
+
+.navLogo {
+    display: flex;
+
+}
+
+.navLogo h1 {
+    color: rgba(33, 33, 140);
+    font-size: 25px;
+    font-weight: 600;
+    width: 100%;
+}
+
+.navLogo img {
+    width: 100px;
+}
+
+.navMenu {
+    display: inline-flex;
+    gap: 10px;
+}
+
+.navMenu ul {
+    display: flex;
+}
+
+.navMenu ul li {
+    list-style-type: none;
+}
+
+.navMenu ul li .link {
+    text-decoration: none;
+    font-weight: 500;
+    color: rgba(33, 33, 140, 1);
+    padding-bottom: 15px;
+    margin: 0 10px;
+}
+
+.link:hover,
+:active {
+    border-bottom: 2px solid rgba(33, 33, 140);
+}
+
+.navBtn {
+    display: flex;
+
+}
+
+.navBtn .btn {
+
+    width: 130px;
+    height: 40px;
+    font-weight: 500;
+    background: rgba(33, 33, 140, 0.5);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    color: #fff;
+
+}
+
+.btn:hover {
+    background: rgba(33, 33, 140, 0.3);
+}
+
+#registerBtn {
+    margin-left: 15px;
+}
+
+.btn.white-button {
+    background: rgba(33, 33, 140, 0.7);
+}
+
+.btn.white-button:hover {
+    background: rgba(33, 33, 140, 0.5);
+}
+
+.navMenuBtn {
+    display: none;
+}
+
+#myUserName {
+    display: none;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    color: rgba(33, 33, 140, 1);
+    padding-bottom: 15px;
+    margin: 30px 10px;
+
+}
+
+#myUserName i {
+    /* display: flex; */
+    /* width: 130px; */
+    /* height: 40px; */
+    /* font-weight: 500; */
+    /* background: rgba(33, 33, 140, 0.5); */
+    /* border: none; */
+    /* border-radius: 30px; */
+    cursor: pointer;
+    transition: 0.3s ease;
+    /* align-items: center; */
+    /* padding-left: 20px; */
+    color: rgba(33, 33, 140, 1);
+}
+
+#footer {
+    background-color: rgba(33, 33, 140, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+
+
+
+}
+
+#topFooter {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+    border-bottom: 1px white solid;
+    max-width: 100%;
+}
+
+#topFooter h4 {
+    color: white;
+    padding: 10px 0;
+    font-weight: 500;
+    width: fit-content;
+}
+
+#topFooter p {
+    color: white;
+    font-weight: 300;
+    width: fit-content;
+}
+
+#topFooter ul {
+    display: flex;
+    flex-direction: column;
+}
+
+#topFooter ul li {
+    list-style-type: none;
+    padding-bottom: 10px;
+}
+
+#pages ul li .link {
+    text-decoration: none;
+    font-weight: 200;
+    color: white;
+    font-size: 14px;
+    border-bottom: 1px solid white;
+
+
+
+}
+
+#pages ul li .link:hover,
+:active {
+    border-bottom: 1px solid rgba(33, 33, 140);
+}
+
+#bottomFooter {
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 10px;
+}
+
+#socialMedia {
+    margin-left: 10px;
+}
+
+@media only screen and (max-width: 1190px) {
+    .navLogo h1 {
+        font-size: 100%;
+    }
+
+    .navBtn .btn {
+        width: 80px;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    .navLogo h1 {
+        font-size: 18px;
+    }
+
+    .navBtn .btn {
+        width: 80px;
+    }
+
+    .navMenu ul li .link {
+        font-size: 14px;
+        margin: 0 6px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .navLogo h1 {
+        font-size: 25px;
+    }
+
+    .navBtn {
+        display: flex;
+        justify-content: center;
+    }
+
+    .navMenu.responsive {
+        top: 100px;
+    }
+
+    .navMenu {
+        position: absolute;
+        top: -1096px;
+        flex-direction: column-reverse;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.2);
+        width: 100%;
+        height: 90vh;
+        backdrop-filter: blur(20px);
+        transition: .3s;
+        scroll-behavior: smooth;
+    }
+
+    .navMenu ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navMenuBtn {
+        display: block;
+    }
+
+    .navMenuBtn i {
+        font-size: 25px;
+        color: #fff;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+    .navMenuBtn i:hover {
+        background: rgba(255, 255, 255, 0.15);
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #locationFooter {
+        max-width: 190px;
+        width: 100%;
+    }
+
+    #pages {
+        max-width: 90px;
+        width: 100%;
+        padding-left: 10px;
+
+    }
+
+    #emergencyAndOpenHour {
+        max-width: 150px;
+        width: 100%;
+        padding-left: 10px;
+    }
+
+    #socialMedia {
+        max-width: 100px;
+        width: 100%;
+
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    #footer {
+        font-size: 12px;
+    }
+
+    #pages ul li .link {
+        font-size: 10px;
+    }
+
+    #topFooter {
+        padding: 10px;
+    }
+}
+
+
+
+
+@media only screen and (max-width: 540px) {
+    .wrapper {
+        min-height: 100vh;
+    }
+
+}
+
+@media only screen and (max-width: 550px) {
+    .navLogo h1 {
+        font-size: 20px;
+    }
+
+    .navLogo img {
+        width: 80px;
+        height: 80px;
+        padding-top: 20px;
+    }
+
+    .navMenuBtn i {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .navLogo h1 {
+        font-size: 15px;
+    }
+
+    .navLogo img {
+        width: 70px;
+        height: 70px;
+        padding-top: 20px;
+    }
+
+    .navMenuBtn i {
+        font-size: 15px;
+    }
+
+    #footer {
+        font-size: 6px;
+    }
+
+    #topFooter h4 {
+        font-size: 10px;
+    }
+
+    #pages ul li .link {
+        font-size: 6px;
+    }
+
+    .bx {
+        font-size: 6px;
+    }
+}
