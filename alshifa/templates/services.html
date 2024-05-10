@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+    {%load static%}
+    {%block title %}Services{% endblock %}
+    {% block links %}
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/services.css' %}">
+    <link rel="shortcut icon" href="{% static 'media/logo.jpg' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% endblock %}
+
+{%block contanier%}
+
+             <!-- services -->
+            <section id="ourServices">
+                
+                    <div class="servicesHeadingText">
+                        <h1>Our Services</h1>
+                        <p>High Quality Services For You</p>
+                    
+                    
+                </div>
+
+                <div class="serviceBoxContainer">
+                    <div class="servicesSlideBtn">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                    <div class="swiper mySwiperServices">
+                        <div class="swiper-wrapper">
+                                <!-- ---slide1----- -->
+                                <div class="swiper-slide">
+                                    <div class="servicesBox box1">
+                                        <i class="fa-solid fa-hospital-user"></i>
+                                        <strong>Primary Care</strong>
+                                        <p>We provide specialized dental care services, including routine cleanings...</p>
+                                        <a href="#primaryCare">Read More</a>
+                                    </div>
+                                </div>
+                            <!-- ---end slide---- -->
+                            <!-- ---slide2----- -->
+                                <div class="swiper-slide">
+                                    <div class="servicesBox box2">
+                                        <i class="fa-solid fa-flask-vial"></i>
+                                        <strong>Laboratory Tests</strong>
+                                        <p>In our healthcare facility, we prioritize Laboratory Test Preferred Services ...</p>
+                                        <a href="#laboratoryTests">Read More</a>
+                                    </div>
+                                </div>
+                                <!-- ---end slide---- -->
+                            <!-- ---slide3----- -->
+                                <div class="swiper-slide">
+                                    <div class="servicesBox box3">
+                                        <i class="fa-solid fa-hands-holding-child"></i>
+                                        <strong>Motherhood & Childhood</strong>
+                                        <p>In our healthcare facility,  ...</p>
+                                        <a href="#hoodCare">Read More</a>
+                                    </div>
+                                </div>
+                            <!-- ---end slide---- -->
+                            <!-- ---slide4----- -->
+                                <div class="swiper-slide">
+                                    <div class="servicesBox box4">
+                                        <i class="fa-solid fa-tooth "></i>
+                                        <strong>Dental Care</strong>
+                                        <p>We provide specialized dental care services, including routine cleanings...</p>
+                                        <a href="#dentalCare">Read More</a>
+                                    </div>
+                                </div>
+                            <!-- ---end slide---- -->
+                        
+                        </div>
+                    </div>
+                      
+                </div>
+                <div id="bookBtn">
+                <span><a href="./appointment.html">Book Appointment</a></span> 
+                </div>
+        </section><!----contanier end------>
+                <!-- -------appointment btn--------- -->
+       
+     
+ 
+       
+
+
+    </div>
+    <section id="servicesInfo">
+        <div class="servicesInfo1" id="primaryCare">
+            <strong>Primary Care</strong>
+            <div class="innerServicesInfo">
+                <img src="{% static 'media/primaryCareNew.jpg' %}" id="img1" alt="">
+
+                <p>
+                    At our healthcare center, we take pride in offering comprehensive and patient-centered Primary Care
+                    Services, designed
+                    to be the first line of defense for individuals and families in maintaining overall health and well-being.
+                    Our team of
+                    dedicated primary care physicians and healthcare professionals is committed to providing personalized and
+                    preventive
+                    care. From routine check-ups and vaccinations to managing chronic conditions, our primary care services
+                    encompass a wide
+                    spectrum of medical needs. We prioritize building strong doctor-patient relationships, promoting open
+                    communication, and
+                    addressing health concerns with a holistic approach. Our goal is to be the central point for all your
+                    healthcare needs,
+                    coordinating referrals to specialists when necessary and ensuring continuity of care. Through our Primary
+                    Care Services,
+                    we strive to empower our patients with the knowledge and tools to make informed decisions about their
+                    health, fostering
+                    a proactive and collaborative approach to wellness.
+                </p>
+                
+            </div>
+           
+    
+        </div>
+        <div class="servicesInfo1" id="laboratoryTests">
+            <strong>Laboratory Tests</strong>
+            <div class="innerServicesInfo">
+                <p>
+                    In our state-of-the-art laboratory, we offer a comprehensive range of diagnostic services to meet diverse
+                    healthcare
+                    needs. Our skilled team of laboratory professionals utilizes advanced technology and follows rigorous
+                    protocols to
+                    conduct a wide array of tests, including but not limited to blood tests, urine analysis, microbiology,
+                    pathology, and
+                    genetic testing. We specialize in providing accurate and timely results, supporting healthcare providers in
+                    diagnosing
+                    and monitoring various medical conditions. From routine screenings to specialized diagnostic procedures, our
+                    laboratory
+                    services play a crucial role in enabling early detection, precise diagnosis, and effective treatment
+                    planning. Whether
+                    it's for preventive care, disease management, or ongoing monitoring, our laboratory is dedicated to
+                    delivering reliable
+                    and high-quality results to support the overall health and well-being of our patients.
+                </p>
+                <img src="{% static 'media/laboratoryTest.jpg' %}" id="img2"
+                    alt="">
+            </div>
+           
+        </div>
+        <div class="servicesInfo1" id="hoodCare">
+            <strong>Motherhood & Childhood</strong>
+            <div class="innerServicesInfo">
+                <img src="{% static 'media/motherCare.jpg' %}" alt="">
+                <p>
+                    Maternal and Child Health Services encompass a specialized suite of healthcare provisions dedicated to the
+                    well-being of
+                    both mothers and their children throughout the stages of pregnancy, childbirth, and early childhood. These
+                    services
+                    include prenatal care to monitor the health of expectant mothers and provide guidance on a healthy
+                    pregnancy. Postnatal
+                    care is also a vital component, offering support and medical attention for both the mother and newborn after
+                    childbirth.
+                    Pediatric services within Maternal and Child Health cover the comprehensive healthcare needs of infants and
+                    children,
+                    ensuring their growth, development, and overall health are carefully monitored. Through a combination of
+                    preventive
+                    care, health education, and medical interventions, Maternal and Child Health Services aim to promote healthy
+                    pregnancies, safe deliveries, and the optimal well-being of both mothers and their children, laying the
+                    foundation for a
+                    healthy start in life.
+                </p>
+            </div>
+           
+    
+        </div>
+        <div class="servicesInfo1" id="dentalCare">
+            <strong>Dental Care</strong>
+            <div class="innerServicesInfo">
+                <p>
+                    At our clinic, Dental Care is a core aspect of our comprehensive healthcare services, focusing on the
+                    well-being of our
+                    patients' oral health. Our dedicated team of dental professionals is committed to providing a range of
+                    services tailored
+                    to meet individual needs. From routine check-ups and cleanings to more specialized treatments such as
+                    fillings,
+                    extractions, and orthodontics, we strive to offer comprehensive and personalized dental care. Our emphasis
+                    on preventive
+                    measures aims to educate patients on maintaining optimal oral hygiene, reducing the risk of common dental
+                    issues.
+                    Additionally, our clinic provides restorative procedures to address dental concerns promptly, ensuring our
+                    patients can
+                    enjoy a healthy and confident smile. With a commitment to excellence and patient-centered care, our Dental
+                    Care services
+                    are designed to promote oral health, overall well-being, and the aesthetic satisfaction of our valued
+                    patients.
+                </p>
+                <img src="{% static 'media/dentalCare.jpg' %}" alt="">
+
+            </div>
+            
+        </div>
+
+{%endblock%}
+    
+
+           
+{%block script %}  
+
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <script src="{% static 'js/services.js' %}"></script>
+
+{% endblock %}

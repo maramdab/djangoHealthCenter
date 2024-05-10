@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+    {%load static%}
+    {%block title %}Book Appointment{% endblock %}
+    {% block links %}
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="{% static 'media/logo.jpg' %}">
+    <link rel="stylesheet" href="{% static 'css/appointment.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% endblock %}
+
+{%block contanier%}
+            <div class="bookContainer" id="book">
+                <div class="top">
+                    <header>Book Appointment</header>
+                </div>
+                <form id="bookForm">
+                        <div class="inputBox" id="patientName">
+                            <input type="text" class="inputField" id="firstNameForm" placeholder="FirstName" required>
+                            <input type="text" class="inputField" id="secondName" placeholder="secondName" required>
+                        </div>
+                        <div class="inputBox">
+                            <input type="text" class="inputField" id="email" placeholder="Email address" required>
+                        </div>
+                        <div class="inputBox">
+                            <input type="tel" class="inputField" id="phoneNumber" maxlength="10" placeholder="Contact Number" required>
+                            
+                        </div>
+                        <div class="inputBox">
+                            <input type="text" class="inputField" id="address"  placeholder="YourAddress" required>
+                        
+                        </div>
+                        <div class="inputBox">
+                            <label for="birthday" >Date of Birth</label>
+                            <input type="date" class="inputField" id="birthday" placeholder="YourAddress" required>
+                        </div>
+                        
+                    <div class="inputBox" id="check">
+                        <span>Select Services:</span>
+                        <label for="primaryCare" class="checkBox"><input type="checkbox" id="primaryCare" name="servicesOption" value="primaryCare">Primary Care</label>
+                        <label for="dentalCare" class="checkBox"><input type="checkbox" id="dentalCare" name="servicesOption" value="dentalCare">Dental Care</label>
+                        <label for="motherhood" class="checkBox"><input type="checkbox" id="motherhood" name="servicesOption" value="motherhood">Motherhood And Childhood</label>
+                        <label for="labTests" class="checkBox"><input type="checkbox" id="labTests" name="servicesOption" value="labTests" >Laboratory Tests</label>
+                    </div>
+                    
+                        <div class="inputBox" id="preferredTime" >
+                            <span >Preferred Date and Time:</span>
+                            <div>
+                                    <input type="date" class="inputField" id="appointmentDate">
+                                    <select name="selectTime" class="inputField" id="time" required>
+                                        <option value="8:00">8:00 AM</option>
+                                        <option value="9:00">9:00 AM</option>
+                                        <option value="10:00">10:00 AM</option>
+                                        <option value="11:00">11:00 AM</option>
+                                        <option value="12:00">12:00 PM</option>
+                                        <option value="13:00">13:00 PM</option>
+                                        <option value="14:00">14:00 PM</option>
+                                        <option value="15:00">15:00 PM</option>
+                                        <option value="16:00">16:00 PM</option>
+                                        <option value="17:00">17:00 PM</option>
+                                        <option value="18:00">18:00 PM</option>
+                                        <option value="19:00">19:00 PM</option>
+                                    </select>
+                            </div>
+        
+                            
+                        </div>
+
+                        <div class="inputBox">
+                            <input type="submit" class="submit" value="Sent">
+                        </div>
+                </form>
+
+              
+            </div>
+ 
+{%endblock%}
+    
+
+           
+{%block script %}  
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{%static 'js/appointment.js' %}"></script>
+
+{% endblock %}

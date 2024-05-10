@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+    {%load static%}
+    {%block title %}Registeration{% endblock %}
+    {% block links %}
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{% static 'css/register.css' %}">
+        <link rel="shortcut icon" href="{% static 'media/logo.jpg' %}">
+    {% endblock %}
+
+{%block contanier%}
+
+    <div id="background">
+            <div class="formBox">
+            
+                <div class="registerContainer" aria-autocomplete="on">
+                    <div class="top">
+                        <span>Have an account? <a href="{% url 'login' %}">Login</a></span>
+                        <header>Sign up</header>
+                    </div>
+                    <form id="inputForm" action="">
+                        <div class="inputBox">
+                            <label for="userName"></label>
+                            <input type="text" class="inputField" id="userName" placeholder="UserName" required>
+                            <i class="bx bx-user"></i>
+                        </div>
+            
+                        <div class="inputBox">
+                            <label for="regEmial"></label>
+                            <input type="email" class="inputField" id="regEmial" placeholder="Email" required>
+                            <i class="bx bx-envelope"></i>
+                        </div>
+                        <div class="inputBox">
+                            <label for="regPass"></label>
+                            <input type="password" class="inputField" id="regPass" placeholder="Password" required>
+                            <i class="bx bx-lock-alt"></i>
+                            <span id="errorPass"></span>
+                        </div>
+                        <div class="inputBox">
+                            <label for="confirmPass"></label>
+                            <input type="password" class="inputField" id="confirmPass" placeholder="confirmPassword" required>
+                            <i class="bx bx-lock-alt"></i>
+                        </div>
+                        <div class="inputBox">
+                            <input type="submit" class="submit" value="Register">
+                        </div>
+                    </form>
+            
+                    <div class="twoCol">
+                        <div class="one">
+                            <input type="checkbox" id="registerCheck">
+                            <label for="registerCheck">Remember me</label>
+                        </div>
+                        <div class="two">
+                            <label><a href="#">Terms & conditions</a></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{%endblock%}
+    
+
+           
+{%block script %}  
+   <script src=" {% static 'js/register.js' %}"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% endblock %}

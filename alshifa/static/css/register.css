@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body{
+    background: url(../media/login2.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+#background {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 110vh;
+    padding: 120px 40px;
+}
+.formBox{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 512px;
+    height: 500px;
+   overflow: hidden;
+    z-index: 2;
+    margin-top: 20px;
+
+}
+
+.registerContainer{
+    position: absolute;
+    right: 4px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    transition: .5s ease-in-out;
+
+}
+.top span{
+    color:rgba(33, 33, 140, 1);
+    font-size: small;
+    padding: 10px 0;
+    justify-content: center;
+    display: flex;
+}
+.top span a{
+    font-weight: 500;
+    color: rgba(33, 33, 140, 1);
+    margin-left: 5px;
+
+}
+header{
+    color: rgba(33, 33, 140, 1);
+    font-size: 30px;
+    text-align: center;
+    padding: 10px 0 30px 0;
+}
+
+.inputField{
+
+    font-size: 15px;
+    background: rgba(33, 33, 140, 0.3);
+    color: rgba(33, 33, 140, 1);
+    height: 50px;
+    width: 100%;
+    padding: 0 10px 0 45px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    transition: .2s ease;
+}
+.inputField:hover,.inputField:focus{
+   background:rgba(33, 33, 140, 0.25) ;
+}
+::-webkit-input-placeholder{
+   color:rgba(33, 33, 140, 1) ;
+}
+.inputBox i{
+    position: relative;
+    top: -35px;
+    left: 17px;
+    color: rgba(33, 33, 140, 1);
+}
+.submit{
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    height: 45px;
+    width: 100%;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    background:rgba(33, 33, 140, 0.7);
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+.submit:hover{
+    background: rgba(33, 33, 140, 0.5);
+    box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+
+}
+.twoCol{
+    display: flex;
+    justify-content: space-between;
+    color: rgba(33, 33, 140, 1);
+    font-size: small;
+    margin-top: 10px;
+}
+.twoCol .one{
+    display: flex;
+    gap: 5px;
+
+}
+.two label a{
+    text-decoration:none ;
+    color: rgba(33, 33, 140, 1);;
+}
+.two label a:hover{
+    text-decoration: underline;
+}
+@media only screen and (max-width: 1190px){
+    .navLogo h1 {
+        font-size: 100%;
+    }
+        .navBtn .btn {
+            width: 80px;
+        }
+}
+@media only screen and (max-width: 878px) {
+    .navLogo h1 {
+        font-size: 25px;
+    }
+    .navBtn {
+        display: none;
+    }
+
+    .navMenu.responsive {
+        top: 100px;
+    }
+
+    .navMenu {
+        position: absolute;
+        top: -800px;
+        display: flex;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.2);
+        width: 100%;
+        height: 90vh;
+        backdrop-filter: blur(20px);
+        transition: .3s;
+    }
+
+    .navMenu ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navMenuBtn {
+        display: block;
+    }
+
+    .navMenuBtn i {
+        font-size: 25px;
+        color: #fff;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: .3s;
+    }
+
+    .navMenuBtn i:hover {
+        background: rgba(255, 255, 255, 0.15);
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .wrapper {
+        min-height: 100vh;
+    }
+
+    .formBox {
+        width: 100%;
+        height: 565px;
+    }
+
+    .registerContainer {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .registerContainer .twoForms {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+@media only screen and (max-width: 380px){
+    .navLogo h1  {
+        font-size:100%;
+        }
+}
+

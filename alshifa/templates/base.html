@@ -25,16 +25,16 @@
                 <ul>
                     <li><a href="{% url 'home' %}" class="link">Home</a></li>
                     <li><a href="{%url 'about' %}" class="link">About Us</a></li>
-                    <li><a href="./pages/services.html" class="link">services</a></li>
-                    <li><a href="./pages/patientInfo.html" class="link">Patient Info</a></li>
-                    <li><a href="./pages/contact.html" class="link">Contact Us</a></li>
+                    <li><a href="{% url 'services'%}" class="link">services</a></li>
+                    <li><a href="{% url 'patient'%}" class="link">Patient Info</a></li>
+                    <li><a href="{% url 'contact' %}" class="link">Contact Us</a></li>
                  
 
                 </ul>
                 <div class="navBtn">
-                    <a href="./pages/login.html" id="loginLink"><button class="btn white-button" id="loginBtn"
+                    <a href="{% url 'login' %}" id="loginLink"><button class="btn white-button" id="loginBtn"
                             onclick="handleLoginClick()">Sign In</button></a>
-                    <a href="./pages/register.html" id="registerLink"><button class="btn" id="registerBtn">Sign Up</button></a>
+                    <a href="{% url 'register' %}" id="registerLink"><button class="btn" id="registerBtn">Sign Up</button></a>
                     <a href="" id="myUserName">
                         <button class="btn" id="userName1"></button>
                     </a>
