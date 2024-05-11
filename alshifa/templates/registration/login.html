@@ -9,22 +9,27 @@
     {% endblock %}
 
 {%block contanier%}
+
             <div id="background">
             <div class="formBox">
                 <div class="loginContainer" id="login">
                     <div class="top">
                         <span>Don't have an account? <a href="{% url 'register' %}">Sign Up</a></span>
                         <header>Login</header>
-                    </div>
-                    <form id="loginForm">
+                    </div>       
+                    <form id="loginForm" method='post' action="{% url 'login' %}">
+                        {% csrf_token %}
                         <div class="inputBox">
-                            <input type="email" class="inputField" id="emailForm" placeholder="UserName or Emial">
+                            <input type="text" class="inputField" id="emailForm" placeholder="UserName" name='username'>
                             <i class="bx bx-user"></i>
                         </div>
                         <div class="inputBox">
-                            <input type="password" class="inputField" id="passwordForm" placeholder="Password">
+                            <input type="password" class="inputField" id="passwordForm" placeholder="Password" name='password'>
                             <i class="bx bx-lock-alt"></i>
                         </div>
+                        {%if form.errors %}
+                            <p id='formError'  style="color:rgba(33, 33, 140, 1)"; >{{form.errors}}</p>
+                        {%endif%} 
                         <div class="inputBox">
                             <input type="submit" class="submit" value="Sign in">
                         </div>
@@ -50,7 +55,7 @@
 
            
 {%block script %}  
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="{% static 'js/login.js' %} "></script>
+    {% comment %} <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{% static 'js/login.js' %} "></script> {% endcomment %}
 
 {% endblock %}

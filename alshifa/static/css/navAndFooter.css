@@ -117,8 +117,8 @@ body {
     display: none;
 }
 
-#myUserName {
-    display: none;
+/* #myUserName {
+    display: inline;
     text-decoration: none;
     font-weight: 500;
     font-size: 16px;
@@ -126,7 +126,7 @@ body {
     padding-bottom: 15px;
     margin: 30px 10px;
 
-}
+} */
 
 #myUserName i {
     /* display: flex; */

@@ -32,12 +32,17 @@
 
                 </ul>
                 <div class="navBtn">
+                    {%if user.is_authenticated %}
+                    <a href="{% url 'logout' %}" id="loginLink"><button class="btn white-button" id="loginBtn"
+                          >Logout</button></a>
+                    <a href="" id="loginLink"><button class="btn white-button" style="font-weight: 300;" id="loginBtn"
+                          >{{user.username}}</button></a>
+                    {%else%}
                     <a href="{% url 'login' %}" id="loginLink"><button class="btn white-button" id="loginBtn"
                             onclick="handleLoginClick()">Sign In</button></a>
                     <a href="{% url 'register' %}" id="registerLink"><button class="btn" id="registerBtn">Sign Up</button></a>
-                    <a href="" id="myUserName">
-                        <button class="btn" id="userName1"></button>
-                    </a>
+
+                    {%endif%}
                 
                 </div>
                 
