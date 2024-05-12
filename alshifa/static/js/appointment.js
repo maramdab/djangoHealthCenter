@@ -114,18 +114,18 @@ inputForm.addEventListener('submit', function (e) {
    
 });
 
-function redirectApp(){
-    if(localStorage.getItem('email')==null){
-        Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'You should Login First',
-            showConfirmButton: true,
-            timer: 7000
-        }).then(function () {
-            window.location = "../pages/login.html";
-            });
+// function redirectApp(){
+//     if(localStorage.getItem('email')==null){
+//         Swal.fire({
+//             position: 'center',
+//             icon: 'error',
+//             title: 'You should Login First',
+//             showConfirmButton: true,
+//             timer: 7000
+//         }).then(function () {
+//             window.location = "../pages/login.html";
+//             });
         
-    }
-}
-redirectApp();
+//     }
+// }
+// redirectApp();
