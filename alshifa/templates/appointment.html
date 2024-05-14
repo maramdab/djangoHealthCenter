@@ -16,26 +16,13 @@
                 <div class="top">
                     <header>Book Appointment</header>
                 </div>
-                <form id="bookForm">
-                        <div class="inputBox" id="patientName">
-                            <input type="text" class="inputField" id="firstNameForm" placeholder="FirstName" required>
-                            <input type="text" class="inputField" id="secondName" placeholder="secondName" required>
-                        </div>
-                        <div class="inputBox">
-                            <input type="text" class="inputField" id="email" placeholder="Email address" required>
-                        </div>
+                <form id="bookForm" method="post" action="{%url 'appointment'%}">
+                      
                         <div class="inputBox">
                             <input type="tel" class="inputField" id="phoneNumber" maxlength="10" placeholder="Contact Number" required>
                             
                         </div>
-                        <div class="inputBox">
-                            <input type="text" class="inputField" id="address"  placeholder="YourAddress" required>
                         
-                        </div>
-                        <div class="inputBox">
-                            <label for="birthday" >Date of Birth</label>
-                            <input type="date" class="inputField" id="birthday" placeholder="YourAddress" required>
-                        </div>
                         
                     <div class="inputBox" id="check">
                         <span>Select Services:</span>

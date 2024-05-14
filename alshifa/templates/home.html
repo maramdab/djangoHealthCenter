@@ -57,7 +57,7 @@
                         since our establishment in 2005. At Al Shifaa, we prioritize the well-being of our patients, offering a comprehensive
                         range of medical services with a focus on personalized care.
                     </p>
-                    <a href="./pages/about.html">Read More</a>
+                    <a href="{%url 'about'%}">Read More</a>
                 </div>
                 <div>
 
@@ -87,51 +87,61 @@
                     <div class="swiper mySwiperServices">
                         <div class="swiper-wrapper">
                             <!-- ---slide1----- -->
-                            <div class="swiper-slide">
-                                <div class="servicesBox box1">
-                                    <i class="fa-solid fa-hospital-user"></i>
-                                    <strong>Primary Care</strong>
-                                    <p>We provide specialized dental care services, including routine cleanings...</p>
-                                    <a href="#primaryCare">Read More</a>
+                                {% for i in service %}
+                                <div class="swiper-slide">
+                                    <div class="servicesBox box1">
+                                        <i class="{{i.icon}}"></i>
+                                        <strong>{{i.name}}</strong>
+                                        <p>{{ i.description|slice:":50" }}</p>
+                                        <a href="{{i.get_absolute_url}}">Read More</a>
+                                    </div>
                                 </div>
-                            </div>
+                                {%endfor%}
                             <!-- ---end slide---- -->
-                            <!-- ---slide2----- -->
-                            <div class="swiper-slide">
-                                <div class="servicesBox box2">
-                                    <i class="fa-solid fa-flask-vial"></i>
-                                    <strong>Laboratory Tests</strong>
-                                    <p>In our healthcare facility, we prioritize Laboratory Test Preferred Services ...</p>
-                                    <a href="#laboratoryTests">Read More</a>
-                                </div>
-                            </div>
-                            <!-- ---end slide---- -->
-                            <!-- ---slide3----- -->
-                            <div class="swiper-slide">
-                                <div class="servicesBox box3">
-                                    <i class="fa-solid fa-hands-holding-child"></i>
-                                    <strong>Motherhood & Childhood</strong>
-                                    <p>In our healthcare facility, ...</p>
-                                    <a href="#hoodCare">Read More</a>
-                                </div>
-                            </div>
-                            <!-- ---end slide---- -->
-                            <!-- ---slide4----- -->
-                            <div class="swiper-slide">
-                                <div class="servicesBox box4">
-                                    <i class="fa-solid fa-tooth "></i>
-                                    <strong>Dental Care</strong>
-                                    <p>We provide specialized dental care services, including routine cleanings...</p>
-                                    <a href="#dentalCare">Read More</a>
-                                </div>
-                            </div>
-                            <!-- ---end slide---- -->
+
             
                         </div>
                     </div>
             
                 </div>
                
+            </section>
+
+            <section id="ourDoctors">
+            
+                <div class="doctorsHeadingText">
+                    <h2>Our Doctors</h2>
+                    <p>Meet our experienced team of healthcare professionals.</p>
+            
+            
+                </div>
+                <!-- ----------box contanier-------------- -->
+                <div class="doctorBoxContainer">
+                    <div class="servicesSlideBtn">
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                    <div class="swiper mySwiperServices">
+                        <div class="swiper-wrapper">
+                            <!-- ---slide1----- -->
+                            {% for i in doctor %}
+                            <div class="swiper-slide">
+                                <div class="doctorBox box1">
+                                    <img src="{{i.image.url}}" id="img1" alt="">
+                                    <strong>{{i.name}}</strong>
+                                    <p>{{ i.service }}</p>
+                            
+                                </div>
+                            </div>
+                            {%endfor%}
+                            <!-- ---end slide---- -->
+            
+            
+                        </div>
+                    </div>
+            
+                </div>
+            
             </section>
         
     

@@ -10,5 +10,6 @@ urlpatterns = [
     path('patientInfo',patientInfo,name='patient'),
     path('services/',services,name='services'),
     path('accounts/',include('django.contrib.auth.urls')),
+    path('services/<int:pk>/',services_details,name='details'),
 
 ]
