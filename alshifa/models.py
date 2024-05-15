@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 from django.core.validators import RegexValidator
+from django.contrib.auth.models import User
 
 phone_validator = RegexValidator(
     regex=r'^\+?1?\d{9,15}$',
@@ -11,9 +12,19 @@ phone_validator = RegexValidator(
 # Create your models here.
 
 class Patient(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     firstName=models.CharField(max_length=100)
     secondName=models.CharField(max_length=100)
     dateOfBirth=models.DateField(default=timezone.now)
+    genderChoices = [
+        ('M', 'Male'),
+        ('F', 'Female'),
+        ('O', 'Other'),
+    ]
+    gender = models.CharField(max_length=1, choices=genderChoices, default='O')
+ 
+
+
 
     def __str__(self):
         return f"{self.firstName} ,{self.secondName}"
@@ -43,10 +54,14 @@ class Doctor(models.Model):
 
 class Appointment(models.Model):
     patient=models.ForeignKey(Patient,on_delete=models.CASCADE)
-    appointment_date=models.DateTimeField()
+    appointment_date=models.DateField()
+    appointment_time=models.TimeField()
     doctor=models.ForeignKey(Doctor,on_delete=models.CASCADE)
     service=models.ForeignKey(Services,on_delete=models.CASCADE)
     contact_num = models.CharField(validators=[phone_validator], max_length=17, blank=True)
+
+    def get_absolute_url(self):
+        return reverse('patient',kwargs={'pk':self.pk})
 
     def __str__(self):
         return f'Appointment for: {self.patient}, On: {self.appointment_date}'

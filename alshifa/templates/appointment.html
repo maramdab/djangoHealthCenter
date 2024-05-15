@@ -16,27 +16,54 @@
                 <div class="top">
                     <header>Book Appointment</header>
                 </div>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                        {% endfor %}
+                </ul>
+                {% endif %}
                 <form id="bookForm" method="post" action="{%url 'appointment'%}">
-                      
+                    {% csrf_token %}
+                        <div class="inputBox" id="patientName">
+                            <input type="text" class="inputField" id="firstNameForm" placeholder="FirstName" name="firstName" required>
+                            <input type="text" class="inputField" id="secondName" placeholder="secondName" name="secondName" required>
+                        </div>
                         <div class="inputBox">
-                            <input type="tel" class="inputField" id="phoneNumber" maxlength="10" placeholder="Contact Number" required>
+                            <input type="email" class="inputField" id="email" placeholder="Email address" name="email" required>
+                        </div>
+                        <div class="inputBox">
+                            <input type="tel" class="inputField" id="phoneNumber" maxlength="10" placeholder="Contact Number" name="phoneNumber" required>
                             
                         </div>
+                        <div class="inputBox">
+                            <label for="birthday">Date of Birth</label>
+                            <input type="date" class="inputField" id="birthday" placeholder="YourAddress" name="birthday" required>
+                        </div>
+                        <div class="inputBox" id="gender">
+                            <span>Select Gender:</span>
+                            <select class="inputField" name="gender" required>
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                                <option value="O">Other</option>
+                            </select>
+                        </div>
+                        <div class="inputBox" id="check">
+                            <span>Select Services:</span>
                         
-                        
-                    <div class="inputBox" id="check">
-                        <span>Select Services:</span>
-                        <label for="primaryCare" class="checkBox"><input type="checkbox" id="primaryCare" name="servicesOption" value="primaryCare">Primary Care</label>
-                        <label for="dentalCare" class="checkBox"><input type="checkbox" id="dentalCare" name="servicesOption" value="dentalCare">Dental Care</label>
-                        <label for="motherhood" class="checkBox"><input type="checkbox" id="motherhood" name="servicesOption" value="motherhood">Motherhood And Childhood</label>
-                        <label for="labTests" class="checkBox"><input type="checkbox" id="labTests" name="servicesOption" value="labTests" >Laboratory Tests</label>
-                    </div>
+                            <select for="{{i.name}}" class="inputField" name="servicesOption">
+                                {%for i in services%}
+                                    <option value="{{i.name}}"  >{{i.name}}</option>
+                                {%endfor%}
+                            </select>
+                    
+                        </div>
                     
                         <div class="inputBox" id="preferredTime" >
                             <span >Preferred Date and Time:</span>
                             <div>
-                                    <input type="date" class="inputField" id="appointmentDate">
-                                    <select name="selectTime" class="inputField" id="time" required>
+                                    <input type="date" class="inputField" id="appointmentDate" name="date">
+                                    <select  class="inputField" id="time" name="time" required>
                                         <option value="8:00">8:00 AM</option>
                                         <option value="9:00">9:00 AM</option>
                                         <option value="10:00">10:00 AM</option>
@@ -68,7 +95,7 @@
 
            
 {%block script %}  
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="{%static 'js/appointment.js' %}"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+    <!-- <script src="{%static 'js/appointment.js' %}"></script> -->
 
 {% endblock %}
