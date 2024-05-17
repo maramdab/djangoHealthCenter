@@ -20,10 +20,17 @@
                     <div id="personal">
                         <i class="fa-regular fa-circle-user"></i>
                         <strong>Personal Information</strong>
-                        <p>Patient Name: <span id="name"></span></p>
-                        <p>Date Of Birth: <span id="dof"></span></p>
-                        <p>Contact Number: <span id="cn"></span></p> 
-                        <p>Age: <span id="cn"></span></p>
+                        <p>Patient Name: <span id="name">{{appointment.patient}}</span></p>
+                        <p>Date Of Birth: <span id="dof">{{patient_info.dateOfBirth}}</span></p>
+                        <p>Contact Number: <span id="cn">{{appointment.contact_num}}</span></p> 
+                        <p>Gender: <span id="cn">
+                        {% if patient_info.gender == 'M' %}
+                        Male
+                        {% elif patient_info.gender == 'F' %}
+                        Female
+                        {% else %}
+                        Other
+                        {% endif %}</span></p>
 
 
                     </div>
@@ -57,14 +64,17 @@
                     <div id="appointmentDetail">
                         <i class="fa-regular fa-calendar-check"></i>
                         <strong>Appointment Detials</strong>
-                        <p>Date: <span id="appDate"></span></p>
-                        <p>Time: <span id="appTime"></span></p>
+                        <p>Date: <span id="appDate">{{appointment.appointment_date}}</span></p>
+                        <p>Time: <span id="appTime">{{appointment.appointment_time}}</span></p>
                         <p>Selected Services:
-                             <span id="services1" style="display: block;"></span>
-                             <span id="services2" style="display: block;"></span>
-                             <span id="services3" style="display: block;"></span>
-                             <span id="services4" style="display: block;"></span>
-                        </p>
+                             <span id="services1" style="display: block;">{{appointment.service}}</span>
+                        <p>Doctor Name: <span id="appTime">{{appointment.doctor}}</span></p>
+
+
+                        <form action="{% url 'patient' pk=appointment.pk %}" method="post">
+                            {% csrf_token %}
+                            <button class="btn btn-danger" type="submit"><i class='bx bxs-trash' style='color:#10305e;font-size: 15px;'></i>Delete</button>
+                        </form>
                     </div>
                 </div>
             </div>

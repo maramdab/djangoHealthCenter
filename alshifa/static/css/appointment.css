@@ -18,6 +18,9 @@
     margin-top: 40px;
 
 } */
+.messages ::before{
+    color: rgba(33, 33, 140, 1);
+}
 
 .bookContainer {
     max-width: 100%;

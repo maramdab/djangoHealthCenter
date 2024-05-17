@@ -6,6 +6,7 @@ from .models import *
 from django.contrib import messages
 from datetime import datetime
 from django.contrib.auth.models import User
+from django.http import HttpResponse, HttpResponseRedirect
 
 # Create your views here.
 
@@ -36,7 +37,8 @@ def appointment(request):
         gender=request.POST['gender']
 
         try:
-            user = User.objects.get(email=email)
+            # user = User.objects.get(email=email)
+            user = request.user
 
         except User.DoesNotExist:
             messages.error(request, "User with this email does not exist.")
@@ -44,11 +46,17 @@ def appointment(request):
 
         try:
             birthday = datetime.strptime(birthday_str, '%Y-%m-%d').date()
+            if birthday>datetime.today().date():
+                 messages.error(request, "Invalid date of birth.")
+                 return render(request, 'appointment.html', {'services': services})
         except ValueError:
             messages.error(request, "Invalid date of birth format.")
             return render(request, 'appointment.html', {'services': services})
         try:
             appointment_date = datetime.strptime(appointment_date_str, '%Y-%m-%d').date()
+            if appointment_date<=datetime.today().date():
+                 messages.error(request, "Invalid appointment date.")
+                 return render(request, 'appointment.html', {'services': services})
         except ValueError:
             messages.error(request, "Invalid appointment date format.")
             return render(request, 'appointment.html', {'services': services})
@@ -81,14 +89,17 @@ def appointment(request):
 
 
 
-        appointment = Appointment.objects.create(
+        appointment, created = Appointment.objects.update_or_create(
         patient=patient,
-        appointment_date=appointment_date,
-        appointment_time=appointment_time,
-        doctor=doctor,
-        service=service_name,
-        contact_num=contact_num
-            )
+        defaults={
+            'doctor': doctor,
+            'service': service_name,
+            'contact_num': contact_num,
+            'appointment_time':appointment_time,
+            'appointment_date':appointment_date,
+        }
+        )
+        
         return redirect('/patientInfo/')
         
 
@@ -98,9 +109,10 @@ def contact(request):
     return render(request,'contact.html')
 
 
-def patientInfo(request,pk):
-    appointment=Appointment.objects.get(pk=pk)
-    patient_info=Patient.objects.get(name=appointment)
+def patientInfo(request):
+    user=request.user
+    patient_info=Patient.objects.get(user=user)
+    appointment=Appointment.objects.filter(patient=patient_info).first()
     context={'patient_info':patient_info,
               'appointment':appointment
              }
@@ -135,4 +147,12 @@ def services_details(request,pk):
     service= get_object_or_404(Services,pk=pk)
 
     return render(request,'service_detail.html',{'service':service})
+
+
+def delete_object_function(request, pk):
+    # OrderSparePart is the Model of which the object is present
+    ob = Appointment.objects.get(pk=pk)
+    ob.delete()
+    return HttpResponseRedirect(reverse('patient'))
+
 

@@ -16,15 +16,18 @@
                 <div class="top">
                     <header>Book Appointment</header>
                 </div>
-                {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-                        {% endfor %}
-                </ul>
-                {% endif %}
+
                 <form id="bookForm" method="post" action="{%url 'appointment'%}">
                     {% csrf_token %}
+                        {% if messages %}
+                        <div class="inputBox">
+                            <ul class="messages">
+                                {% for message in messages %}
+                                <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                                    {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
                         <div class="inputBox" id="patientName">
                             <input type="text" class="inputField" id="firstNameForm" placeholder="FirstName" name="firstName" required>
                             <input type="text" class="inputField" id="secondName" placeholder="secondName" name="secondName" required>
@@ -81,7 +84,7 @@
         
                             
                         </div>
-
+                        
                         <div class="inputBox">
                             <input type="submit" class="submit" value="Sent">
                         </div>

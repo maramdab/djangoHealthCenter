@@ -7,9 +7,10 @@ urlpatterns = [
     path('appointment/',appointment,name='appointment'),
     path('contactUs/',contact,name='contact'),
     path('register/',signUp,name='register'),
-    path('patientInfo/<int:pk>',patientInfo,name='patient'),
+    path('patientInfo/',patientInfo,name='patient'),
     path('services/',services,name='services'),
     path('accounts/',include('django.contrib.auth.urls')),
     path('services/<int:pk>/',services_details,name='details'),
+   path('page-delete/<int:pk>', delete_object_function, name='delete_object'),
 
 ]

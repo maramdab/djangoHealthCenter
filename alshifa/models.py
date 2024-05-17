@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
 
+
 phone_validator = RegexValidator(
     regex=r'^\+?1?\d{9,15}$',
     message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."
@@ -27,7 +28,7 @@ class Patient(models.Model):
 
 
     def __str__(self):
-        return f"{self.firstName} ,{self.secondName}"
+        return f"{self.firstName} {self.secondName}"
 
 class Services(models.Model):
     name=models.CharField(max_length=200)
@@ -50,7 +51,7 @@ class Doctor(models.Model):
 
 
     def __str__(self):
-        return f'Doctor : {self.name}, MN: {self.medical_number},Service : {self.service}'
+        return f'{self.name}'
 
 class Appointment(models.Model):
     patient=models.ForeignKey(Patient,on_delete=models.CASCADE)
