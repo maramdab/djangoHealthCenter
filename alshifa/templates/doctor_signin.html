@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{%load static%}
+{%block title %}Login{% endblock %}
+{% block links %}
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<link rel="shortcut icon" href="{% static 'media/logo.jpg' %}">
+{% endblock %}
+
+{%block contanier%}
+
+<div id="background">
+    <div class="formBox">
+        <div class="loginContainer" id="login">
+            <div class="top">
+                <header>Doctor Login</header>
+            </div>
+            <form id="loginForm" method='post' action="{% url 'doctor_sign_in' %}">
+                {% csrf_token %}
+                <div class="inputBox">
+                    <input type="text" class="inputField" id="emailForm" placeholder="MedicalNumber" name='medical_number'>
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="inputBox">
+                    <input type="password" class="inputField" id="passwordForm" placeholder="Password" name='password'>
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+                <p id='formError' style="color:rgba(33, 33, 140, 1)" ;>{{error}}</p>
+                <div class="inputBox">
+                    <input type="submit" class="submit" value="Sign in">
+                </div>
+            </form>
+
+            <div class="twoCol">
+                <div class="one">
+                    <input type="checkbox" id="loginCheck">
+                    <label for="loginCheck">Remember me</label>
+                </div>
+                <div class="two">
+                    <label><a href="#">Forgot password?</a></label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{%endblock%}
+
+
+
+{%block script %}
+{% comment %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{% static 'js/login.js' %} "></script> {% endcomment %}
+
+{% endblock %}

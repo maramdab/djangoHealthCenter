@@ -11,6 +11,10 @@ urlpatterns = [
     path('services/',services,name='services'),
     path('accounts/',include('django.contrib.auth.urls')),
     path('services/<int:pk>/',services_details,name='details'),
-   path('page-delete/<int:pk>', delete_object_function, name='delete_object'),
+   path('page-delete/', delete_object_function, name='delete_object'),
+   path('doctor/sign_in/', doctor_sign_in, name='doctor_sign_in'),
+   path('doctor_dashboard/',doctor_dashboard,name='doctor_dashboard'),
+   path('doctor/appointments/',appointment_list,name='appointment_list')
+
 
 ]

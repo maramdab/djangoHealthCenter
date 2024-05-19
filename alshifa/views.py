@@ -108,7 +108,7 @@ def appointment(request):
 def contact(request):
     return render(request,'contact.html')
 
-
+@login_required(login_url='/accounts/login/')
 def patientInfo(request):
     user=request.user
     patient_info=Patient.objects.get(user=user)
@@ -149,10 +149,39 @@ def services_details(request,pk):
     return render(request,'service_detail.html',{'service':service})
 
 
-def delete_object_function(request, pk):
-    # OrderSparePart is the Model of which the object is present
-    ob = Appointment.objects.get(pk=pk)
+def delete_object_function(request):
+    user=request.user
+    patient=Patient.objects.get(user=user)
+    ob = Appointment.objects.get(patient=patient)
     ob.delete()
-    return HttpResponseRedirect(reverse('patient'))
+    return redirect('/patientInfo/')
 
+def doctor_sign_in(request):
+    if request.method == 'POST':
+        medical_number = request.POST['medical_number']
+        password = request.POST['password']
+        user = authenticate(request, username=medical_number, password=password)
+        if user is not None and hasattr(user, 'doctor'):
+            login(request, user)
+            return redirect('doctor_dashboard')
+        else:
+            return render(request, 'doctor_signin.html', {'error': 'Invalid credentials or user is not a doctor.'})
+    return render(request, 'doctor_signin.html')
+def doctor_dashboard(request):
+    doctor=request.user.doctor
+    appointments=Appointment.objects.filter(doctor=doctor)
+    context={
+        'appointments':appointments
+    }
 
+    return render(request,'doctor_home.html',context)
+
+def appointment_list(request):
+    doctor=request.user.doctor
+    appointment_list=Appointment.objects.filter(doctor=doctor)
+    context={
+        'appointment_list':appointment_list,
+    }
+    return render(request,'appointment_list.html',context)
+def delete(request,id):
+    ob=Appointment.objects.get(id=id)

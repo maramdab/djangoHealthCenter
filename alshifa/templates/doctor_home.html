@@ -1,0 +1,78 @@
+{% extends "doctor_base.html" %}
+
+{%load static%}
+{%block title %}Home{% endblock %}
+{% block links %}
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="shortcut icon" href="./media/logo.jpg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="{% static 'css/doctor_home.css' %}">
+
+{% endblock %}
+
+{%block contanier%}
+
+
+<section id="mainDiv">
+    <div id="mainDivOne">
+        <div id="pageTilte">
+            <h1>{{user.doctor.name}}
+            </h1>
+        </div>
+        <div id="paragraphText">
+            <p>{{user.doctor.service}} 
+            </p>
+        </div>
+    </div>
+
+    <div id="imgDoc">
+        <img src="{{user.doctor.image.url}}" alt="">
+    </div>
+
+</section>
+
+
+<section id="aboutUs">
+    <div id="aboutUsHP">
+        <div id="aboutUsHead">
+            <div id="aboutUsHeadingText">
+                <h2>Quick Stats and Summary</h2>
+                <h4>Upcoming Appointmets</h4>
+                <ul class="app_list">
+                    {%for appointment in appointments%}
+                    <li class="link"><a href="">{{appointment}}</a></li>
+                    {%endfor%}
+                </ul>
+
+            </div>
+        </div>
+        
+      
+    </div>
+    <div id="aboutUsImg">
+        <img src="{% static 'media/aboutUsindex.jpg' %}" alt="">
+    </div>
+
+
+</section>
+
+
+
+
+{%endblock%}
+
+
+
+{%block script %}
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="{%static 'js/home.js'%}"></script>
+
+{% endblock %}
+
+{% load sweetify %}
+{% sweetify %}

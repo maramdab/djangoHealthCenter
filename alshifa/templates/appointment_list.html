@@ -1,0 +1,70 @@
+{% extends "doctor_base.html" %}
+
+{%load static%}
+{%block title %}Appointments{% endblock %}
+{% block links %}
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="shortcut icon" href="./media/logo.jpg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="{% static 'css/appointment_list.css' %}">
+
+{% endblock %}
+
+{%block contanier%}
+
+
+<section id="mainDiv">
+    <div id="mainDivOne">
+        <div id="pageTitle">
+            <h3>Appointments
+            </h3>
+        </div>
+        <div>
+            <button>add</button>
+        </div>
+    </div>
+
+    <div id="app_table">
+        <table>
+            <tr>
+                <th>Patient Name</th>
+                <th> Appointment_Date</th>
+                <th>Appointment Time</th>
+                <th>Contact Number</th>
+                <th>Delete</th>
+            </tr>
+            {%for appointment in appointment_list%}
+            <tr>
+                <td>{{appointment.patient}}</td>
+                <td>{{appointment.appointment_date}}</td>
+                <td>{{appointment.appointment_time}}</td>
+                <td>{{appointment.contact_num}}</td>
+                <td><a href=""></a></td>
+            </tr>
+            {%endfor%}
+        </table>
+    </div>
+
+</section>
+
+
+
+
+
+{%endblock%}
+
+
+
+{%block script %}
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="{%static 'js/home.js'%}"></script>
+
+{% endblock %}
+
+{% load sweetify %}
+{% sweetify %}

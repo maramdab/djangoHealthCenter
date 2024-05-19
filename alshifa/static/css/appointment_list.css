@@ -1,0 +1,28 @@
+#mainDiv{
+    display: flex;
+    flex-direction: column;
+    max-width: 1500px;
+    width: 100%;
+    justify-content: space-around;
+    padding: 120px 40px;
+}
+#pageTitle{
+    color: rgba(33, 33, 140);
+    padding: 10px;
+}
+#mainDivOne{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+table{
+    width: 100%;
+}
+table,th, td{
+    border:1px solid rgba(33, 33, 140,0.9);
+    border-collapse: collapse;
+    color: rgba(33, 33, 140);
+    padding: 0px 15px;
+    
+}

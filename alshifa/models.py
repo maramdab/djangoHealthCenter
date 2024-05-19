@@ -44,8 +44,9 @@ class Services(models.Model):
         return f'{self.name}'
 
 class Doctor(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
     name=models.CharField(max_length=100)
-    medical_number=models.IntegerField()
+    medical_number=models.IntegerField(unique=True)
     service = models.ForeignKey(Services, on_delete=models.CASCADE)
     image=models.ImageField(upload_to='static/media/')
 
@@ -68,3 +69,5 @@ class Appointment(models.Model):
         return f'Appointment for: {self.patient}, On: {self.appointment_date}'
 
 
+class LabTest(models.Model):
+    pass

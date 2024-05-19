@@ -15,6 +15,7 @@
                 <div class="loginContainer" id="login">
                     <div class="top">
                         <span>Don't have an account? <a href="{% url 'register' %}">Sign Up</a></span>
+                        <span>Login as a Doctor? <a href="{% url 'doctor_sign_in' %}">Doctor sign in</a></span>
                         <header>Login</header>
                     </div>       
                     <form id="loginForm" method='post' action="{% url 'login' %}">
