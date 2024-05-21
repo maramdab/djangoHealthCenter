@@ -23,20 +23,20 @@
                 <img src="{%static 'media/Medical-Logo-Design-Symbol-Icon-on-transparent-background-PNG.png'%}" alt="">
                 <h1>AL-Shefa Medical Center</h1>
             </div>
-            <div class="navMenu" id="navMenu">
+            <div class="navMenu" id="navMenu" style='gap:100px;'>
                 <ul>
-                    <li><a href="{% url 'home' %}" class="link">Patients</a></li>
+                    <li><a href="{%url 'doctor_dashboard'%}" class="link">profile</a></li>
+                    <li><a href="{% url 'patients_list' %}" class="link">Patients</a></li>
                     <li><a href="{%url 'appointment_list' %}" class="link">Appointments</a></li>
-                    <li><a href="{% url 'services'%}" class="link">Medical Records</a></li>
-                    <li><a href="{% url 'contact' %}" class="link">profile</a></li>
+
 
                 </ul>
                 <div class="navBtn">
                     {%if user.is_authenticated %}
                     <a href="{% url 'logout' %}" id="loginLink"><button class="btn white-button"
-                            id="loginBtn">Logout</button></a>
-                    <a href="" id="loginLink"><button class="btn white-button" style="font-weight: 300;"
-                            id="loginBtn">{{user.doctor.name}}</button></a>
+                            id="loginBtn" >Logout</button></a>
+                    <a href="" id="loginLink"><button class="btn white-button" 
+                            id="loginBtn" style='font-size:10px;'>{{user.doctor.name}}</button></a>
                     {%else%}
                     <a href="{% url 'login' %}" id="loginLink"><button class="btn white-button" id="loginBtn"
                             onclick="handleLoginClick()">Sign In</button></a>

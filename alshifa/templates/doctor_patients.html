@@ -1,7 +1,7 @@
 {% extends "doctor_base.html" %}
 
 {%load static%}
-{%block title %}Appointments{% endblock %}
+{%block title %}Patients{% endblock %}
 {% block links %}
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <link rel="shortcut icon" href="./media/logo.jpg">
@@ -20,7 +20,7 @@
 <section id="mainDiv">
     <div id="mainDivOne">
         <div id="pageTitle">
-            <h3>Appointments
+            <h3>My Patients
             </h3>
         </div>
         <div>
@@ -32,39 +32,21 @@
         <table>
             <tr>
                 <th>Patient Name</th>
-                <th> Appointment_Date</th>
-                <th>Appointment Time</th>
-                <th>Contact Number</th>
-                <th>Done</th>
+                <th> Date of birth</th>
+                <th>Age</th>
+                <th>Delete</th>
             </tr>
             {%for appointment in appointment_list%}
             <tr>
                 <td>{{appointment.patient}}</td>
-                <td>{{appointment.appointment_date}}</td>
-                <td>{{appointment.appointment_time}}</td>
-                <td>{{appointment.contact_num}}</td>
-                <td><input type="checkbox" name="appointment_id" value="done" onchange="this.form.submit()">Done</td>
+                <td>{{appointment.patient.dateOfBirth}}</td>
+                <td>{{appointment.patient.age}}</td>
+                <td></td>
+                <td><a href=""></a></td>
             </tr>
             {%endfor%}
         </table>
     </div>
 
 </section>
-
-
-
-
-
 {%endblock%}
-
-
-
-{%block script %}
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="{%static 'js/home.js'%}"></script>
-
-{% endblock %}
-
-{% load sweetify %}
-{% sweetify %}

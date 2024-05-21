@@ -183,5 +183,15 @@ def appointment_list(request):
         'appointment_list':appointment_list,
     }
     return render(request,'appointment_list.html',context)
-def delete(request,id):
-    ob=Appointment.objects.get(id=id)
+# def delete(request,id):
+#     ob=Appointment.objects.get(id=id)
+
+def patients_list(request):
+    doctor=request.user.doctor
+    appointment_list=Appointment.objects.filter(doctor=doctor)
+    for appointment in appointment_list:
+        appointment.patient.age = appointment.patient.calculate_age()
+    context={
+        'appointment_list':appointment_list,
+    }
+    return render(request,'doctor_patients.html',context)

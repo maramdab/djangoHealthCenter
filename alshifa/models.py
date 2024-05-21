@@ -3,6 +3,8 @@ from django.utils import timezone
 from django.urls import reverse
 from django.core.validators import RegexValidator
 from django.contrib.auth.models import User
+from datetime import date
+
 
 
 phone_validator = RegexValidator(
@@ -24,7 +26,9 @@ class Patient(models.Model):
     ]
     gender = models.CharField(max_length=1, choices=genderChoices, default='O')
  
-
+    def calculate_age(self):
+        today = date.today()
+        return today.year - self.dateOfBirth.year - ((today.month, today.day) < (self.dateOfBirth.month, self.dateOfBirth.day))
 
 
     def __str__(self):
@@ -61,6 +65,7 @@ class Appointment(models.Model):
     doctor=models.ForeignKey(Doctor,on_delete=models.CASCADE)
     service=models.ForeignKey(Services,on_delete=models.CASCADE)
     contact_num = models.CharField(validators=[phone_validator], max_length=17, blank=True)
+    done = models.BooleanField(default=False)
 
     def get_absolute_url(self):
         return reverse('patient',kwargs={'pk':self.pk})
