@@ -170,8 +170,13 @@ def doctor_sign_in(request):
 def doctor_dashboard(request):
     doctor=request.user.doctor
     appointments=Appointment.objects.filter(doctor=doctor)
+    upcoming_appointment=[]
+    for appointment in appointments:
+       if datetime.today().date()<= appointment.appointment_date:
+            upcoming_appointment.append(appointment)
+           
     context={
-        'appointments':appointments
+        'upcoming_appointment':upcoming_appointment
     }
 
     return render(request,'doctor_home.html',context)
@@ -179,6 +184,13 @@ def doctor_dashboard(request):
 def appointment_list(request):
     doctor=request.user.doctor
     appointment_list=Appointment.objects.filter(doctor=doctor)
+    done_app=[]
+    upcoming_app=[]
+    app_done=request.POST.get('appointment_id',False)
+    if app_done == 'done':
+        pass
+     
+    
     context={
         'appointment_list':appointment_list,
     }

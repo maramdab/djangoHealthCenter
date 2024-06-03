@@ -29,24 +29,27 @@
     </div>
 
     <div id="app_table">
-        <table>
-            <tr>
-                <th>Patient Name</th>
-                <th> Appointment_Date</th>
-                <th>Appointment Time</th>
-                <th>Contact Number</th>
-                <th>Done</th>
-            </tr>
-            {%for appointment in appointment_list%}
-            <tr>
-                <td>{{appointment.patient}}</td>
-                <td>{{appointment.appointment_date}}</td>
-                <td>{{appointment.appointment_time}}</td>
-                <td>{{appointment.contact_num}}</td>
-                <td><input type="checkbox" name="appointment_id" value="done" onchange="this.form.submit()">Done</td>
-            </tr>
-            {%endfor%}
-        </table>
+        <form method='post' action="{% url 'appointment_list' %}">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <th>Patient Name</th>
+                    <th> Appointment_Date</th>
+                    <th>Appointment Time</th>
+                    <th>Contact Number</th>
+                    <th>Done</th>
+                </tr>
+                {%for appointment in appointment_list%}
+                <tr>
+                    <td>{{appointment.patient}}</td>
+                    <td>{{appointment.appointment_date}}</td>
+                    <td>{{appointment.appointment_time}}</td>
+                    <td>{{appointment.contact_num}}</td>
+                    <td><input type="checkbox" name="appointment_id" value="done" onchange="this.form.submit()">Done</td>
+                </tr>
+                {%endfor%}
+            </table>
+        </form>
     </div>
 
 </section>
